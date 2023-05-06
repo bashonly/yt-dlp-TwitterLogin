@@ -6,7 +6,7 @@ A [yt-dlp](https://github.com/yt-dlp/yt-dlp) extractor [plugin](https://github.c
 
  * When yt-dlp is logging in to Twitter, it may prompt you for an "alternate identifier" (see next bullet point), a confirmation code, or a two-factor authentication token
 
- * After you've used yt-dlp to log into Twitter, Twitter may begin requiring an "alternate idenitifier" to be entered upon each sign-in. This can be either your username, email or phone number, but it cannot be the same idenitifer you submitted as `--username`
+ * After you've used yt-dlp to log into Twitter, Twitter may begin requiring an "alternate idenitifier" to be entered upon each sign-in. This can be either your username, email or phone number, but it cannot be the same identifier you submitted as `--username`
 
  * If your account does not have 2FA enabled, you can use the `-2` option to pass your account's "alternate identifier" with your command, e.g. `-u "email@example.com" -p "strong_password" -2 "username"`
 
