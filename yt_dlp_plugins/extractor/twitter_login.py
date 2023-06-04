@@ -162,11 +162,10 @@ class TwitterLoginBaseIE(TwitterBaseIE, plugin_name='TwitterLogin'):
                     }), expected=('LoginEnterAlternateIdentifierSubtask', 'LoginEnterPassword'))
 
             elif next_subtask == 'LoginEnterAlternateIdentifierSubtask':
-                user_input = self._get_tfa_info(
-                    'one of username, phone number or email that was not used as --username')
                 next_subtask = self._call_login_api(
                     'Submitting alternate identifier', headers, expected=('LoginEnterPassword'),
-                    data=build_login_json(input_dict(next_subtask, user_input)))
+                    data=build_login_json(input_dict(next_subtask, self._get_tfa_info(
+                        'one of username, phone number or email that was not used as --username'))))
 
             elif next_subtask == 'LoginEnterPassword':
                 next_subtask = self._call_login_api(
@@ -188,15 +187,15 @@ class TwitterLoginBaseIE(TwitterBaseIE, plugin_name='TwitterLogin'):
                     }), expected=('LoginTwoFactorAuthChallenge', 'LoginAcid', 'LoginSuccessSubtask'))
 
             elif next_subtask == 'LoginTwoFactorAuthChallenge':
-                user_input = self._get_tfa_info('two-factor authentication token')
                 next_subtask = self._call_login_api(
-                    'Submitting 2FA token', headers, data=build_login_json(input_dict(next_subtask, user_input)),
+                    'Submitting 2FA token', headers, data=build_login_json(input_dict(
+                        next_subtask, self._get_tfa_info('two-factor authentication token'))),
                     expected=('AccountDuplicationCheck', 'LoginAcid', 'LoginSuccessSubtask'))
 
             elif next_subtask == 'LoginAcid':
-                user_input = self._get_tfa_info('confirmation code sent to your email or phone')
                 next_subtask = self._call_login_api(
-                    'Submitting confirmation code', headers, data=build_login_json(input_dict(next_subtask, user_input)),
+                    'Submitting confirmation code', headers, data=build_login_json(input_dict(
+                        next_subtask, self._get_tfa_info('confirmation code sent to your email or phone'))),
                     expected=('AccountDuplicationCheck', 'LoginTwoFactorAuthChallenge', 'LoginSuccessSubtask'))
 
             elif next_subtask == 'LoginSuccessSubtask':
