@@ -139,15 +139,7 @@ class TwitterLoginBaseIE(TwitterBaseIE, plugin_name='TwitterLogin'):
                     'Submitting JS instrumentation response', headers, data=build_login_json({
                         'subtask_id': next_subtask,
                         'js_instrumentation': {
-                            'response': json.dumps({
-                                'rf': {
-                                    'a41de9f83d4eb5048c1ed2c081cac748c36b29ee80be4a8adc11b8920af8768e': -6,
-                                    'c603d7e8c7a43ddc4323591573fef35449e2f19c4e23990b30a563c2a43f375d': -1,
-                                    'abe13b03c83c84488999968cc298aac83464af1fc52b9b9de986ca5d2b1052f5': 13,
-                                    'a2be20ae265015457946782450d47320f569faa6d19b40a7eeec548b00e81592': -13
-                                },
-                                's': 'saTn6TFIIykSX8zgGeqEyO0jw5Y-PQpsEwJhzM4ojurJCLpBj5hQ0RMWOHfl3TZkUSN1jzm85FHeb_-fsqMpwAUrABW9OnsAcFtBeNLXclpXX-7ppgdUvxLa0hT2LijI_7pJxDr3OEhhLW6LX7habGx3DxiB4NeseJ7lfQG5w1htUtLSWX7gE2QUyXydmQMZU9XGCOyH8D6qtYtqKklgFV8se9fNZNoicNRho3TQbDu_5pHkbOPr19386CnDqRYzxPD6rucNkV18X8DcavInWWLlUoW_pe7anaj0xWA60KmSk_berzFHmwNiU6ew2d4VzUWpxpGEOKI5O8qx5j35cgAAAYfsU0z2'
-                            }, separators=(',', ':')),
+                            'response': '{}',
                             'link': 'next_link'
                         }
                     }), expected=('LoginEnterUserIdentifierSSO'))
