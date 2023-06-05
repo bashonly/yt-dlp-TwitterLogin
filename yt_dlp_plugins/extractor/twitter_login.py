@@ -129,7 +129,7 @@ class TwitterLoginBaseIE(TwitterBaseIE, plugin_name='TwitterLogin'):
             }
 
         next_subtask = self._call_login_api(
-            'Logging in', headers, query={'flow_name': 'login'}, data=self._LOGIN_INIT_DATA)
+            'Downloading flow token', headers, query={'flow_name': 'login'}, data=self._LOGIN_INIT_DATA)
 
         while self.is_logged_in is False:
             del self.__dict__['is_logged_in']
@@ -203,6 +203,8 @@ class TwitterLoginBaseIE(TwitterBaseIE, plugin_name='TwitterLogin'):
 
             else:
                 raise ExtractorError(f'Unrecognized subtask ID "{next_subtask}"')
+
+        self.report_login()
 
     def _call_api(self, path, video_id, query={}, graphql=False):
         headers = self._set_base_headers()
