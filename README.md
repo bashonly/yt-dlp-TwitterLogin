@@ -2,6 +2,16 @@ A [yt-dlp](https://github.com/yt-dlp/yt-dlp) extractor [plugin](https://github.c
 
 ---
 
+## NOTICE
+
+This plugin has been made obsolete by [yt-dlp version 2023.06.08.184733](https://github.com/yt-dlp/yt-dlp-nightly-builds/releases/tag/2023.06.08.184733), [commit d1795f4](https://github.com/yt-dlp/yt-dlp/commit/d1795f4a6af99c976c9d3ea2dabe5cf4f8965d3c)
+
+**Support for Twitter login has now been added in yt-dlp master. As such, this plugin will no longer be updated.**
+
+Run `yt-dlp --update-to nightly` or install the master branch.
+
+---
+
  * Pass your web browser's user-agent as an argument to the `--user-agent` option if you want to avoid a "new device login" notification being triggered every time you use this plugin
 
  * When yt-dlp is logging in to Twitter, it may prompt you for an "alternate identifier" (see next bullet point), a confirmation code, or a two-factor authentication token
