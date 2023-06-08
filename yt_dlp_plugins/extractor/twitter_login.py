@@ -62,6 +62,10 @@ class TwitterLoginBaseIE(TwitterBaseIE, plugin_name='TwitterLogin'):
         }
     }, separators=(',', ':')).encode()
 
+    @property
+    def is_logged_in(self):
+        return bool(self._get_cookies(self._API_BASE).get('auth_token'))
+
     def _fetch_guest_token(self, headers, display_id):
         headers.pop('x-guest-token', None)
         self._guest_token = traverse_obj(self._download_json(
@@ -130,9 +134,7 @@ class TwitterLoginBaseIE(TwitterBaseIE, plugin_name='TwitterLogin'):
         next_subtask = self._call_login_api(
             'Downloading flow token', headers, query={'flow_name': 'login'}, data=self._LOGIN_INIT_DATA)
 
-        while self.is_logged_in is False:
-            del self.__dict__['is_logged_in']
-
+        while not self.is_logged_in:
             if next_subtask == 'LoginJsInstrumentationSubtask':
                 next_subtask = self._call_login_api(
                     'Submitting JS instrumentation response', headers, data=build_login_json({
@@ -240,6 +242,7 @@ class TwitterLoginBaseIE(TwitterBaseIE, plugin_name='TwitterLogin'):
 TwitterBaseIE._NETRC_MACHINE = TwitterLoginBaseIE._NETRC_MACHINE
 TwitterBaseIE._flow_token = TwitterLoginBaseIE._flow_token
 TwitterBaseIE._LOGIN_INIT_DATA = TwitterLoginBaseIE._LOGIN_INIT_DATA
+TwitterBaseIE.is_logged_in = TwitterLoginBaseIE.is_logged_in
 TwitterBaseIE._fetch_guest_token = TwitterLoginBaseIE._fetch_guest_token
 TwitterBaseIE._set_base_headers = TwitterLoginBaseIE._set_base_headers
 TwitterBaseIE._call_login_api = TwitterLoginBaseIE._call_login_api
