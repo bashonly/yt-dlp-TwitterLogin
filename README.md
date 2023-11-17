@@ -6,7 +6,7 @@ A [yt-dlp](https://github.com/yt-dlp/yt-dlp) extractor [plugin](https://github.c
 
 This plugin has been made obsolete by [yt-dlp version 2023.06.08.184733](https://github.com/yt-dlp/yt-dlp-nightly-builds/releases/tag/2023.06.08.184733), [commit d1795f4](https://github.com/yt-dlp/yt-dlp/commit/d1795f4a6af99c976c9d3ea2dabe5cf4f8965d3c)
 
-**Support for Twitter login has now been added in yt-dlp master. As such, this plugin will no longer be updated.**
+**Support for Twitter login has now been added in yt-dlp. As such, this plugin will no longer be updated, and it has been disabled for yt-dlp versions where it is obsolete**
 
 Run `yt-dlp --update-to nightly` or install the master branch.
 
@@ -22,7 +22,7 @@ Run `yt-dlp --update-to nightly` or install the master branch.
 
 ## Installation
 
-Requires yt-dlp [2023.05.01](https://github.com/yt-dlp/yt-dlp-nightly-builds/releases/tag/2023.05.01.235542) or above.
+Requires yt-dlp version [2023.05.01.235542](https://github.com/yt-dlp/yt-dlp-nightly-builds/releases/tag/2023.05.01.235542) to [2023.06.08.183630](https://github.com/yt-dlp/yt-dlp-nightly-builds/releases/tag/2023.06.08.183630).
 
 You can install this package with pip:
 ```

@@ -1,3 +1,9 @@
+from yt_dlp.update import version_tuple
+from yt_dlp.version import __version__
+
+if not ((2023, 5, 1, 235542) <= version_tuple(__version__) < (2023, 6, 8, 184734)):
+    raise ImportError('Only yt-dlp versions between 2023.05.01.235542 and 2023.06.08.183630 can use this plugin')
+
 import json
 
 from yt_dlp.utils import ExtractorError, traverse_obj, try_call
