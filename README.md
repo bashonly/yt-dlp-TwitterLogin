@@ -8,7 +8,7 @@ This plugin has been made obsolete by [yt-dlp version 2023.06.08.184733](https:/
 
 **Support for Twitter login has now been added in yt-dlp. As such, this plugin will no longer be updated, and it has been disabled for yt-dlp versions where it is obsolete**
 
-Run `yt-dlp --update-to nightly` or install the master branch.
+Update your yt-dlp to the latest version (`yt-dlp -U`) if you have not already.
 
 ---
 
